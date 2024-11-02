@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "151791698402",
+    "project_id": "gauth-b6454",
+    "storage_bucket": "gauth-b6454.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151791698402:android:dcb92965eb6072c4d279bb",
+        "android_client_info": {
+          "package_name": "com.ankitdubey021.firebaseauthdemp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151791698402-peff6875teu7cu1tlaflvifseshnlo6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ankitdubey021.firebaseauthdemp",
+            "certificate_hash": "9850ca00d934565864c40fdfc9ff5a23072786ef"
+          }
+        },
+        {
+          "client_id": "151791698402-ab5i5h8b175g526m8dskl16vrrjf5qg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOhpFDEE30vDZDZ9aHuOvKC4Yvjto2ljE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151791698402-ab5i5h8b175g526m8dskl16vrrjf5qg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
