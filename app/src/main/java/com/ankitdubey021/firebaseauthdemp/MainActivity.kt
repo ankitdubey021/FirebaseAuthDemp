@@ -15,8 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setup() {
-        Log.e("Tiger", "Setup")
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("151791698402-ab5i5h8b175g526m8dskl16vrrjf5qg2.apps.googleusercontent.com")
             .requestEmail()
@@ -62,32 +59,16 @@ class MainActivity : AppCompatActivity() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            firebaseAuthWithGoogle(account.idToken!!, onSuccess = {
-                val email = account.email
-                findViewById<TextView>(R.id.tv).text = email
-            })
+            findViewById<TextView>(R.id.tv).text = account.email
+            signOut()
         } catch (e: ApiException) {
             // Handle sign-in failure
         }
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String, onSuccess: () -> Unit) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    onSuccess()
-                    Log.e("Tiger", "Success")
-                    signOut()
-                } else {
-                    Log.e("Tiger", "Failure")
-                    // Sign-in failure
-                }
-            }
-    }
+
 
     private fun signOut() {
-        FirebaseAuth.getInstance().signOut()
         googleSignInClient?.signOut()?.addOnCompleteListener {}
     }
 
